@@ -22,7 +22,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/lists/shinies', // UPDATE THIS, where do you want the client to go after you login 
+    successRedirect : '/landing', // UPDATE THIS, where do you want the client to go after you login 
     failureRedirect : '/landing' //  UPDATE THIS, where do you want the client to go if login fails
   }
 ));

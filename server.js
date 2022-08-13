@@ -9,6 +9,7 @@ const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
+//  Requiring shinies router
 const shinyListRouter = require('./routes/shinies');
 
 
@@ -52,7 +53,8 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
-app.use('/lists/shinies', shinyListRouter);
+//  Mounting shinies router in /shinies
+app.use('/shinies', shinyListRouter);
 
 
 // invalid request, send 404 page
