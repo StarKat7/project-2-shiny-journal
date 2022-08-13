@@ -11,6 +11,7 @@ const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
 //  Requiring shinies router
 const shinyListRouter = require('./routes/shinies');
+const successListRouter = require('./routes/successes');
 
 
 // create the Express app
@@ -55,6 +56,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRoutes);
 //  Mounting shinies router in /shinies
 app.use('/shinies', shinyListRouter);
+app.use('/successes', successListRouter);
 
 
 // invalid request, send 404 page

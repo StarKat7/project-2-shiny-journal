@@ -6,5 +6,5 @@ module.exports = {
 }
 
 function index(req, res) {
-    res.render("lists/shinies");
+    res.render("lists/successes");
 }
