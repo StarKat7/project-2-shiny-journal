@@ -6,13 +6,13 @@ const noteSchema = mongoose.Schema({
 
 const huntListSchema = mongoose.Schema({
     title: String,
-    pokemon: Array,
+    pokemon: [{type: mongoose.Schema.Types.ObjectId, ref: 'Pokemon'}],
     notes: [noteSchema]
 })
 
 const successListSchema = mongoose.Schema({
     title: String,
-    pokemon: Array,
+    pokemon: [{type: mongoose.Schema.Types.ObjectId, ref: 'Pokemon'}],
     notes: [noteSchema]
 })
 

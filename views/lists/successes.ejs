@@ -10,5 +10,15 @@
 <body>
     <a href="/shinies">Current Hunts List</a>
     <h1>Successful Hunts</h1>
+    <% if (user) { %>
+        <form id="add-pokemon" action="/successes" method="POST">
+            <input type="text" value="Pokemon Name" name="name">
+            <input type="text" value="Location" name="location">
+            <input type="text" value="Methods" name="methods">
+            <button type="submit">Add Pokemon</button>
+        </form>
+    <% } else { %>
+        <div>Login to make your list</div>
+    <% } %> 
 </body>
 </html>
