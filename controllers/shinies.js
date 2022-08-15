@@ -24,11 +24,33 @@ function addPokemon(req, res) {
 }
 
 function index(req, res) {
-    Profile.findById(req.user.profile, function(err, profileDocument) {
-        const profileHuntList = profileDocument.huntList;
-        console.log(profileHuntList, "profile hunt list");   
-        res.render("lists/shinies");
+    const pokemonList = Profile.findById(req.user.profile).populate('pokemon').exec(function(err, profile) {
+        console.log(profile);
+        return profile.huntList;
     })
+    
+    res.render('lists/shinies', {pokemonList})
+    
+    // try {
+    //     const pokemonList = Profile.findById(req.user.profile, function(err, profileDocument) {
+    //     const profileHuntList = profileDocument.huntList;
+    //     console.log(profileHuntList, "profile hunt list");
+    //     return profileHuntList.map(p => {
+    //         Pokemon.findById(p, function(err, pokemonDoc) {
+    //             console.log(pokemonDoc, "pokemon doc")
+    //             // pokemonList.push(pokemonDoc);
+    //             return pokemonDoc;
+    //             //console.log(pokemonList, "pokemon list after push")
+    //         });
+    //     })
+    //     // return pokemonList;
+    // })
+    // console.log(pokemonList, "outside of forEach");
+    //     res.render("lists/shinies", {pokemonList})
+    // } catch (err) {
+    //     return console.error(err);
+    // }
+    
     //  Need to grab the Pokemons' ids from huntList to show them on the page...
     // huntList.map(for each ID send a Pokemon)
     
@@ -39,5 +61,4 @@ function index(req, res) {
     //     }
         //console.log(allPokemonOnList);
        // res.render("lists/shinies");
-    // })
 }

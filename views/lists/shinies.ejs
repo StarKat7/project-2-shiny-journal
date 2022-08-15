@@ -27,10 +27,10 @@
     <% } else { %>
         <div>Login to make your list</div>
     <% } %> 
-    <% //profile.huntList.forEach(function(p) { %>
-        <div>Pokemon: <%= //p.name %></div>
-        <div>Location: <%= //p.location %></div>
-        <div>Methods: <%= //p.huntMethods %></div>
-    <% //}) %> 
+    <% pokemonList.forEach(function(p) { %>
+        <div>Pokemon: <%= p.name %></div>
+        <div>Location: <%= p.location %></div>
+        <div>Methods: <%= p.huntMethods %></div>
+    <% }) %> 
 </body>
 </html>
