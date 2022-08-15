@@ -2,9 +2,24 @@ const Profile = require('../models/profile');
 const Pokemon = require('../models/pokemon');
 
 module.exports = {
-    index
+    index,
+    add: addPokemon
+}
+
+function addPokemon(req, res) {
+    console.log(req.body);
+    Pokemon.create(req.body, function(err, pokemonBeingAdded) {
+        console.log(pokemonBeingAdded, '<-- Pokemon being added');
+        res.redirect('/lists/shinies');
+    })
 }
 
 function index(req, res) {
-    res.render("lists/shinies");
+    Pokemon.find({}, function(err, allPokemonOnList) {
+        if(err) {
+            console.log('Error in index function');
+        }
+        console.log(allPokemonOnList);
+        res.render("lists/shinies");
+    })
 }
