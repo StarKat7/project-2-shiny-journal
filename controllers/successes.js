@@ -8,10 +8,12 @@ module.exports = {
 
 function addPokemon(req, res) {
     console.log(req.body);
-    Pokemon.create(req.body, function(err, pokemonBeingAdded) {
-        console.log(pokemonBeingAdded, '<-- Pokemon being added');
-        res.redirect('/lists/successes');
-    })
+    // Profile.findById(req.user._id, function(err, profileDocument) {
+    //     profileDocument.huntList.push(req.body);
+    //     profileDocument.save(function(err) {
+            res.render("lists/successes");
+    //     })
+    // })
 }
 
 function index(req, res) {

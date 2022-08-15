@@ -18,7 +18,7 @@ const successListSchema = mongoose.Schema({
 
 const profileSchema = new mongoose.Schema({
     name: String,
-    avatar: String,
+    //avatar: String,
     huntList: [huntListSchema],
     successList: [successListSchema]
 })

@@ -8,19 +8,26 @@
     <title>Document</title>
 </head>
 <body>
+    <nav>
+        <% if (user) { %>
+            <a href="/logout">LOG OUT</a>
+          <% } else { %>
+            <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+          <% } %>
+    </nav>
     <a href="/shinies">Current Hunts List</a>
     <h1>Successful Hunts</h1>
     <% if (user) { %>
         <form id="add-pokemon" action="/successes" method="POST">
             <input type="text" value="Pokemon Name" name="name">
             <input type="text" value="Location" name="location">
-            <input type="text" value="Methods" name="methods">
+            <input type="text" value="Methods" name="huntMethods">
             <button type="submit">Add Pokemon</button>
         </form>
     <% } else { %>
         <div>Login to make your list</div>
     <% } %> 
-    <% //pokemon.foreach(function(p) { %>
+    <% //profile.successList.forEach(function(p) { %>
         <div>Pokemon: <%= //p.name %></div>
         <div>Location: <%= //p.location %></div>
         <div>Methods: <%= //p.huntMethods %></div>
