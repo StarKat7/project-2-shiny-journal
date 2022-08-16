@@ -12,11 +12,15 @@
     <% if (user) { %>
         <a href="/logout">LOG OUT</a>
       <% } else { %>
-        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <a href="/auth/google" class="login">LOG IN&nbsp;<img class="google" src="https://i.imgur.com/FHjYyi0.png"></a>
       <% } %>
-</nav>
-    <div>A place to track shiny hunts.</div>
+  </nav>
+  <div id="links">
     <a href="/shinies">Current Hunts List</a>
     <a href="/successes">Successful Hunts List</a>
+  </div>
+    <div id="intro">
+      <p>A place to track shiny hunts. Log in with Google to make your own list!</p>
+    </div>
 </body>
 </html>

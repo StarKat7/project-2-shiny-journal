@@ -32,6 +32,14 @@ nav {
   background-color: white 50%;
 }
 
+.google {
+  height: 20px;
+}
+
+#links {
+  color: white;
+}
+
 a {
   color: white;
 }
@@ -40,11 +48,18 @@ h1 {
   color: #C4FCEF;
 }
 
+#add-pokemon {
+  margin: 8px auto;
+}
+
+#add-pokemon > button {
+  margin: 5px auto;
+}
+
 table {
   border-collapse: collapse;
   margin: 5px auto;
   text-align: left;
-  border: solid 2px white;
   background-color: white;
 }
 
@@ -54,7 +69,7 @@ th, td {
 }
 
 th {
-  background-color: #FBEAFF;
+  background-color: #C4FCEF;
 }
 
 button {
