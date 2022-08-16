@@ -41,7 +41,7 @@ function index(req, res) {
                     })
                 }
             )
-        })
+        })  //  It worked!!
 
     // Profile.findById(req.user.profile, function (err, profileDocument) {
     //     if (err) {
