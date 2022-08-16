@@ -24,12 +24,45 @@ function addPokemon(req, res) {
 }
 
 function index(req, res) {
-    const pokemonList = Profile.findById(req.user.profile).populate('pokemon').exec(function(err, profile) {
-        console.log(profile);
-        return profile.huntList;
-    })
+    //  First I have to get the profile document so I can access the specific userlist. Did that with Profile.findById
+    //  Then I have to get the IDs from huntList
+    //  Then I have to somehow substitute the Pokemon in place of their IDs and pass it to the appropriate views page so it can access the info
+
+    Profile.findById(req.user.profile)
+        .populate("huntList")
+        .exec(function(err, profileDocument) {
+            //  Maybe .populate will work... I have the profile document, now I need the Pokemon...
+            Pokemon.find(
+                { _id: { $in: profileDocument.huntList } },
+                function (err, pokemonInList) {
+                    res.render("lists/shinies", {
+                        profile: profileDocument,
+                        huntList: pokemonInList
+                    })
+                }
+            )
+        })
+
+    // Profile.findById(req.user.profile, function (err, profileDocument) {
+    //     if (err) {
+    //         res.send('Error in index function');
+    //     }
+    //     res.render("lists/shinies", { profileLists: profileDocument });
+    //   });
     
-    res.render('lists/shinies', {pokemonList})
+    //   Profile.findById(req.user.profile, function (err, profileDocument) {
+    //     const pokemonList = Pokemon.find({
+    //       _id: { $in: profileDocument.huntList },
+    //     });
+    //     res.render("lists/shinies", { pokemonList });
+    //   });
+
+    // const pokemonList = Profile.findById(req.user.profile).populate('pokemon').exec(function(err, profile) {
+    //     console.log(profile);
+    //     return profile.huntList;
+    // })
+    
+    // res.render('lists/shinies', {pokemonList})
     
     // try {
     //     const pokemonList = Profile.findById(req.user.profile, function(err, profileDocument) {
