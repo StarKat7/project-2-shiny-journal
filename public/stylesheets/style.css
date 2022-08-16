@@ -29,21 +29,41 @@ body {
 nav {
   margin-left: 0px;
   margin-top: 0px;
+  background-color: white 50%;
+}
+
+a {
+  color: white;
+}
+
+h1 {
+  color: #C4FCEF;
 }
 
 table {
   border-collapse: collapse;
-  margin: auto;
+  margin: 5px auto;
   text-align: left;
-  border: solid 2px;
+  border: solid 2px white;
   background-color: white;
 }
 
 th, td {
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 0.5rem;
 }
 
 th {
   background-color: #FBEAFF;
+}
+
+button {
+  border: none;
+  background-color: #412184;
+  color: #FBEAFF;
+  border-radius: 5px;
+}
+
+input {
+  border-radius: 5px;
 }
