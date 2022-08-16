@@ -27,10 +27,23 @@
     <% } else { %>
         <div>Login to make your list</div>
     <% } %> 
-    <% profile.successList.forEach(function(p) { %>
-        <div>Pokemon: <%= p.name %></div>
-        <div>Location: <%= p.location %></div>
-        <div>Methods: <%= p.huntMethods %></div>
-    <% }) %>
+    <table id="display-successes">
+        <thead>
+            <tr>
+                <th>Pokemon Name</th>
+                <th>Location</th>
+                <th>Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% profile.successList.forEach(function(p) { %>
+                <tr>
+                    <td><%= p.name %></td>
+                    <td><%= p.location %></td>
+                    <td><%= p.huntMethods %></td>
+                </tr>
+            <% }) %> 
+        </tbody>
+    </table>
 </body>
 </html>
