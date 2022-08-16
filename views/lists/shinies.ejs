@@ -9,13 +9,13 @@
 </head>
 <body>
     <nav>
+        <a href="/successes">Successful Hunts List</a>
         <% if (user) { %>
             <a href="/logout">LOG OUT</a>
           <% } else { %>
             <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
           <% } %>
     </nav>
-    <a href="/successes">Successful Hunts List</a>
     <h1>Currently Hunting</h1>
     <% if (user) { %>
         <form id="add-pokemon" action="/shinies" method="POST">
@@ -30,6 +30,7 @@
                     <th>Pokemon Name</th>
                     <th>Location</th>
                     <th>Method</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>

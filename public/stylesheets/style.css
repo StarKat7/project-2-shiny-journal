@@ -19,6 +19,16 @@
   margin-top: -5px;
 }
 
-/* nav {
-  height: 20px;
-} */
+body {
+  text-align: center;
+  justify-content: center;
+}
+
+nav {
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+table {
+  margin: auto;
+}
