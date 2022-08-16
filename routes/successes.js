@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const successListController = require('../controllers/successes');
+const isLoggedIn = require('../config/auth');
 
 router.get('/', successListController.index);
-router.post('/', successListController.add);
-router.delete('/:id', successListController.delete);
-router.put('/:id', successListController.edit);
+router.post('/', isLoggedIn, successListController.add);
+router.delete('/:id', isLoggedIn, successListController.delete);
+router.put('/:id', isLoggedIn, successListController.edit);
 
 module.exports = router;
