@@ -23,7 +23,7 @@ function addPokemon(req, res) {
 
 function index(req, res) {
     Profile.findById(req.user.profile)
-        .populate("huntList")
+        .populate("successList")
         .exec(function(err, profileDocument) {
             //  Maybe .populate will work... I have the profile document, now I need the Pokemon...
             Pokemon.find(
