@@ -5,8 +5,46 @@ const app = require('../server');
 
 module.exports = {
     index,
-    add: addPokemon
+    add: addPokemon,
+    delete: deletePokemon
 }
+
+async function deletePokemon(req, res) {
+    try {
+        const profileDocument = await Profile.findById(req.user.profile);
+        if (!profileDocument) return res.redirect('/');
+        profileDocument.huntList.remove(req.params.id);
+        await profileDocument.save();
+        res.redirect('/shinies');
+    } catch(err) {
+        res.send(err);
+    }
+}
+
+// function deletePokemon(req, res, next) {
+//     Profile.findById({'huntList._id': req.params.id, 'huntList.user': req.user._id}).then(function(profileDocument) {
+//         if (!profileDocument) return res.redirect('/');
+//         profileDocument.huntList.remove(req.params.id);
+//         profileDocument.save().then(function() {
+//             res.redirect('/shinies');
+//         }).catch(function(err) {
+//             return next(err);
+//         })
+//     })
+//     // Profile.findById(req.user.profile).then(function(profileDocument) {
+//     //     Pokemon.findOne({
+//     //         'pokemon._id': req.params.id
+//     //     });
+//     //     profileDocument.huntList.remove(req.params.id);
+//     //     profileDocument.save(function(err) {
+//     //         if (err) {
+//     //             res.send("error in delete function");
+//     //         }
+//     //         res.redirect("/shinies");
+//     //     })
+//     // })
+
+// }
 
 function addPokemon(req, res) {
     Pokemon.create(req.body, function(err, pokemonBeingAdded) {

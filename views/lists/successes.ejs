@@ -39,7 +39,7 @@
                         <td><%= p.location %></td>
                         <td><%= p.huntMethods %></td>
                         <td>
-                            <form action="/shinies<%= p._id %>?_method=DELETE" method="POST">
+                            <form action="/successes/<%= p._id %>?_method=DELETE" method="POST">
                                 <button type="submit">Delete</button>
                             </form>
                         </td>

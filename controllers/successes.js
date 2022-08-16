@@ -3,7 +3,20 @@ const Pokemon = require('../models/pokemon');
 
 module.exports = {
     index,
-    add: addPokemon
+    add: addPokemon,
+    delete: deletePokemon
+}
+
+async function deletePokemon(req, res) {
+    try {
+        const profileDocument = await Profile.findById(req.user.profile);
+        if (!profileDocument) return res.redirect('/');
+        profileDocument.successList.remove(req.params.id);
+        await profileDocument.save();
+        res.redirect('/successes');
+    } catch(err) {
+        res.send(err);
+    }
 }
 
 function addPokemon(req, res) {
