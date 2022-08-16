@@ -9,7 +9,6 @@
 </head>
 <body>
     <nav>
-        <img src="https://archives.bulbagarden.net/media/upload/c/cc/ShinyHOMEStar.png">
         <a href="/successes">Successful Hunts List</a>
         <% if (user) { %>
             <a href="/logout">LOG OUT</a>
@@ -17,7 +16,7 @@
             <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
           <% } %>
     </nav>
-    <h1>Currently Hunting</h1>
+    <h1><img src="https://archives.bulbagarden.net/media/upload/c/cc/ShinyHOMEStar.png">Currently Hunting<img src="https://archives.bulbagarden.net/media/upload/c/cc/ShinyHOMEStar.png"></h1>
     <% if (user) { %>
         <form id="add-pokemon" action="/shinies" method="POST">
             <input type="text" value="Pokemon Name" name="name">
@@ -39,21 +38,19 @@
                         <td><%= p.name %></td>
                         <td><%= p.location %></td>
                         <td><%= p.huntMethods %></td>
-                        <td rowspan="2">
+                        <td>
                             <form action="/shinies/<%= p._id %>?_method=DELETE" method="POST">
                                 <button type="submit">Delete</button>
                             </form>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3">
                             <form action="/shinies/<%= p._id %>?_method=PUT" method="POST">
-                                <input type="text" value="<%= p.name %>" name="name">
-                                <input type="text" value="<%= p.location %>" name="location">
-                                <input type="text" value="<%= p.huntMethods %>" name="huntMethods">
-                                <button type="submit">Edit</button>
+                                <td><input type="text" value="<%= p.name %>" name="name"></td>
+                                <td><input type="text" value="<%= p.location %>" name="location"></td>
+                                <td><input type="text" value="<%= p.huntMethods %>" name="huntMethods"></td>
+                                <td><button type="submit">Edit</button></td>
                             </form>
-                        </td>
                     </tr>
                 <% }) %> 
             </tbody>
