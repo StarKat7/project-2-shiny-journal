@@ -4,7 +4,21 @@ const Pokemon = require('../models/pokemon');
 module.exports = {
     index,
     add: addPokemon,
-    delete: deletePokemon
+    delete: deletePokemon,
+    edit: editPokemon
+}
+
+function editPokemon(req, res) {
+    //  Okay so I don't want to edit the list, I want to edit the Pokemon ON the list. So I need the Pokemon docs that the IDs on the list are attached to and edit those.
+Pokemon.findOneAndUpdate(
+    {_id: req.params.id},
+    req.body,
+    {new: true},
+    function(err, pokemon) {
+        if (err || !pokemon) return res.redirect('/');
+        res.redirect('/successes')
+    }
+) 
 }
 
 async function deletePokemon(req, res) {

@@ -40,6 +40,9 @@
                         <td><%= p.huntMethods %></td>
                         <td>
                             <form action="/successes/<%= p._id %>?_method=PUT" method="POST">
+                                <input type="text" value="<%= p.name %>" name="name">
+                                <input type="text" value="<%= p.location %>" name="location">
+                                <input type="text" value="<%= p.huntMethods %>" name="huntMethods">
                                 <button type="submit">Edit</button>
                             </form>
                         </td>
