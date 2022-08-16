@@ -21,31 +21,6 @@ async function deletePokemon(req, res) {
     }
 }
 
-// function deletePokemon(req, res, next) {
-//     Profile.findById({'huntList._id': req.params.id, 'huntList.user': req.user._id}).then(function(profileDocument) {
-//         if (!profileDocument) return res.redirect('/');
-//         profileDocument.huntList.remove(req.params.id);
-//         profileDocument.save().then(function() {
-//             res.redirect('/shinies');
-//         }).catch(function(err) {
-//             return next(err);
-//         })
-//     })
-//     // Profile.findById(req.user.profile).then(function(profileDocument) {
-//     //     Pokemon.findOne({
-//     //         'pokemon._id': req.params.id
-//     //     });
-//     //     profileDocument.huntList.remove(req.params.id);
-//     //     profileDocument.save(function(err) {
-//     //         if (err) {
-//     //             res.send("error in delete function");
-//     //         }
-//     //         res.redirect("/shinies");
-//     //     })
-//     // })
-
-// }
-
 function addPokemon(req, res) {
     Pokemon.create(req.body, function(err, pokemonBeingAdded) {
         Profile.findById(req.user.profile, function(err, profileDocument) {
@@ -80,56 +55,4 @@ function index(req, res) {
                 }
             )
         })  //  It worked!!
-
-    // Profile.findById(req.user.profile, function (err, profileDocument) {
-    //     if (err) {
-    //         res.send('Error in index function');
-    //     }
-    //     res.render("lists/shinies", { profileLists: profileDocument });
-    //   });
-    
-    //   Profile.findById(req.user.profile, function (err, profileDocument) {
-    //     const pokemonList = Pokemon.find({
-    //       _id: { $in: profileDocument.huntList },
-    //     });
-    //     res.render("lists/shinies", { pokemonList });
-    //   });
-
-    // const pokemonList = Profile.findById(req.user.profile).populate('pokemon').exec(function(err, profile) {
-    //     console.log(profile);
-    //     return profile.huntList;
-    // })
-    
-    // res.render('lists/shinies', {pokemonList})
-    
-    // try {
-    //     const pokemonList = Profile.findById(req.user.profile, function(err, profileDocument) {
-    //     const profileHuntList = profileDocument.huntList;
-    //     console.log(profileHuntList, "profile hunt list");
-    //     return profileHuntList.map(p => {
-    //         Pokemon.findById(p, function(err, pokemonDoc) {
-    //             console.log(pokemonDoc, "pokemon doc")
-    //             // pokemonList.push(pokemonDoc);
-    //             return pokemonDoc;
-    //             //console.log(pokemonList, "pokemon list after push")
-    //         });
-    //     })
-    //     // return pokemonList;
-    // })
-    // console.log(pokemonList, "outside of forEach");
-    //     res.render("lists/shinies", {pokemonList})
-    // } catch (err) {
-    //     return console.error(err);
-    // }
-    
-    //  Need to grab the Pokemons' ids from huntList to show them on the page...
-    // huntList.map(for each ID send a Pokemon)
-    
-
-    // Pokemon.find({}, function(err, allPokemonOnList) {
-    //     if(err) {
-    //         console.log('Error in index function');
-    //     }
-        //console.log(allPokemonOnList);
-       // res.render("lists/shinies");
 }
