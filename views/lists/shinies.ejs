@@ -9,6 +9,7 @@
 </head>
 <body>
     <nav>
+        <img src="https://archives.bulbagarden.net/media/upload/c/cc/ShinyHOMEStar.png">
         <a href="/successes">Successful Hunts List</a>
         <% if (user) { %>
             <a href="/logout">LOG OUT</a>
@@ -22,15 +23,14 @@
             <input type="text" value="Pokemon Name" name="name">
             <input type="text" value="Location" name="location">
             <input type="text" value="Methods" name="huntMethods">
-            <button type="submit">Add Pokemon</button>
+            <br><button type="submit">Add Pokemon</button>
         </form>
         <table id="display-shinies">
             <thead>
                 <tr>
                     <th>Pokemon Name</th>
                     <th>Location</th>
-                    <th>Method</th>
-                    <th>Edit</th>
+                    <th colspan="2">Method</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,17 +39,19 @@
                         <td><%= p.name %></td>
                         <td><%= p.location %></td>
                         <td><%= p.huntMethods %></td>
-                        <td>
+                        <td rowspan="2">
+                            <form action="/shinies/<%= p._id %>?_method=DELETE" method="POST">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
                             <form action="/shinies/<%= p._id %>?_method=PUT" method="POST">
                                 <input type="text" value="<%= p.name %>" name="name">
                                 <input type="text" value="<%= p.location %>" name="location">
                                 <input type="text" value="<%= p.huntMethods %>" name="huntMethods">
                                 <button type="submit">Edit</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/shinies/<%= p._id %>?_method=DELETE" method="POST">
-                                <button type="submit">Delete</button>
                             </form>
                         </td>
                     </tr>

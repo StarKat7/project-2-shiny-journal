@@ -22,6 +22,8 @@
 body {
   text-align: center;
   justify-content: center;
+  background-image: linear-gradient(to right top, #412184, #831b82, #b32079, #d8396b, #f25c5c);
+  background-attachment: fixed;
 }
 
 nav {
@@ -30,5 +32,18 @@ nav {
 }
 
 table {
+  border-collapse: collapse;
   margin: auto;
+  text-align: left;
+  border: solid 2px;
+  background-color: white;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+th {
+  background-color: #FBEAFF;
 }
