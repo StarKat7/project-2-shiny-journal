@@ -8,11 +8,16 @@ A place to track your shiny hunts, ongoing and successful.
 * Node JS
 * MongoDB
 * Express
+* JavaScript
+* CSS
 
 ## Getting Started
-To start tracking your shiny hunts, login with Google and select the Currently Hunting link.
+To start tracking your shiny hunts, login with Google and select the Currently Hunting link. From there, add the shiny Pokemon's name, location, and hunting method and hit the Add Pokemon button to get started! You can track successful shiny hunts on the Successes list.
 
 ## Next Steps
+* Add ability to add image of shiny Pokemon
+* Add notes to Pokemon
+* Add PokeAPI functionality
 
 ## Thanks 
 
