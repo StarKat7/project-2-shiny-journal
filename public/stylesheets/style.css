@@ -29,7 +29,6 @@ body {
 nav {
   margin-left: 0px;
   margin-top: 0px;
-  background-color: white 50%;
 }
 
 .google {
@@ -44,15 +43,21 @@ a {
   color: white;
 }
 
+p {
+  color: #C4FCEF;
+}
+
 h1 {
   color: #C4FCEF;
 }
 
 #add-pokemon {
   margin: 8px auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  max-width: 500px;
 }
 
-#add-pokemon > button {
+#add-pokemon > button, input {
   margin: 5px auto;
 }
 
