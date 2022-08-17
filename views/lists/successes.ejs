@@ -30,6 +30,7 @@
             <thead>
                 <tr>
                     <th>Pokemon Name</th>
+                    <th>Game</th>
                     <th>Location</th>
                     <th colspan="2">Method</th>
                 </tr>
@@ -38,6 +39,7 @@
                 <% profile.successList.forEach(function(p) { %>
                     <tr>
                         <td><%= p.name %></td>
+                        <td><%= p.game %> </td>
                         <td><%= p.location %></td>
                         <td><%= p.huntMethods %></td>
                         <td>
@@ -49,6 +51,7 @@
                     <tr>
                             <form action="/successes/<%= p._id %>?_method=PUT" method="POST">
                                 <td><input type="text" value="<%= p.name %>" name="name"></td>
+                                <td><input type="text" value="<%= p.game %>" name="game"></td>
                                 <td><input type="text" value="<%= p.location %>" name="location"></td>
                                 <td><input type="text" value="<%= p.huntMethods %>" name="huntMethods"></td>
                                 <td><button type="submit">Edit</button></td>
