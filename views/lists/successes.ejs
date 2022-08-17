@@ -18,12 +18,14 @@
     </nav>
     <h1>Successful Hunts</h1>
     <% if (user) { %>
+        <hr>
         <form id="add-pokemon" action="/successes" method="POST">
             <input type="text" value="Pokemon Name" name="name">
             <input type="text" value="Location" name="location">
             <input type="text" value="Methods" name="huntMethods">
             <br><button type="submit">Add Pokemon</button>
         </form>
+        <hr>
         <table id="display-successes">
             <thead>
                 <tr>
