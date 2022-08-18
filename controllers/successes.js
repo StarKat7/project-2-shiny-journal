@@ -27,7 +27,9 @@ async function deletePokemon(req, res) {
         if (!profileDocument) return res.redirect('/');
         profileDocument.successList.remove(req.params.id);
         await profileDocument.save();
-        res.redirect('/successes');
+        Pokemon.findOneAndDelete({ _id: req.params.id }, function (err) {
+            res.redirect('/successes');
+        });
     } catch (err) {
         res.send(err);
     }
