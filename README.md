@@ -14,7 +14,7 @@ A place to track your shiny hunts, ongoing and successful. To start tracking you
 * CSS
 
 ## Getting Started
-[Click here to access the app!](https://shiny-journal-project-2.herokuapp.com/)
+[Click here to access the app!](https://hunt-journal-project-2.herokuapp.com/)
 [Shiny Journal Trello Board](https://trello.com/invite/b/WzTWMPy0/1f83768f8f798fe51000264c8df70cc1/shiny-journal)
 
 

@@ -114,8 +114,12 @@ input {
   border-radius: 5px;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-device-width: 400px) {
   body {
     width: 400px;
+  }
+
+  table {
+    max-width: 380px;
   }
 }
