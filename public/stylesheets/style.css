@@ -19,6 +19,10 @@
   margin-top: -5px;
 }
 
+* {
+  text-align: center;
+}
+
 body {
   text-align: center;
   justify-content: center;
@@ -108,4 +112,10 @@ button {
 
 input {
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    width: 400px;
+  }
 }
