@@ -7,6 +7,9 @@ A place to track your shiny hunts, ongoing and successful.
 ![Pokemon Entry](https://i.imgur.com/QjM2ZRl.png)
 ![Successful Hunts Page](https://i.imgur.com/890ok7I.png)
 
+## Getting Started
+To start tracking your shiny hunts, login with Google and select the Currently Hunting link. From there, add the shiny Pokemon's name, location, and hunting method and hit the Add Pokemon button to get started! You can track successful shiny hunts on the Successes list.
+
 ## Technologies Used
 * Node JS
 * MongoDB
@@ -14,13 +17,11 @@ A place to track your shiny hunts, ongoing and successful.
 * JavaScript
 * CSS
 
-## Getting Started
-To start tracking your shiny hunts, login with Google and select the Currently Hunting link. From there, add the shiny Pokemon's name, location, and hunting method and hit the Add Pokemon button to get started! You can track successful shiny hunts on the Successes list.
-
 ## Next Steps
 * Add notes to Pokemon
-* Add PokeAPI functionality
 * Add odds calculator
+* Add PokeAPI functionality
+* Add ability to share lists with others
 
 ## Thanks 
 
