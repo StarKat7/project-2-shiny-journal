@@ -69,16 +69,31 @@ h1 {
 table {
   border-collapse: collapse;
   margin: 5px auto;
-  text-align: left;
+  text-align: center;
   background-color: white;
 }
 
 th, td {
   border: 1px solid white;
   padding: 0.5rem;
+  min-width: 200px;
 }
 
 th {
+  background-color: #C4FCEF;
+}
+
+#image-box {
+  height: 250px;
+}
+
+#pokemon-image {
+  max-height: 200px;
+}
+
+#pokemon-name {
+  font-size: large;
+  font-weight: bold;
   background-color: #C4FCEF;
 }
 

@@ -21,6 +21,7 @@
         <hr>
         <form id="add-pokemon" action="/successes" method="POST">
             <input type="text" value="Pokemon Name" name="name">
+            <input type="text" value="Image URL" name="image">
             <input type="text" value="Game" name="game">
             <input type="text" value="Location" name="location">
             <input type="text" value="Methods" name="huntMethods">
@@ -28,32 +29,47 @@
         </form>
         <hr>
         <table id="display-successes">
-            <thead>
+            <!-- <thead>
                 <tr>
                     <th>Pokemon Name</th>
+                    <th>Image</th>
                     <th>Game</th>
                     <th>Location</th>
                     <th colspan="2">Method</th>
                 </tr>
-            </thead>
+            </thead> -->
             <tbody>
                 <% profile.successList.forEach(function(p) { %>
                     <tr>
-                        <td><%= p.name %></td>
+                        <td id="pokemon-name" colspan="2"><%= p.name %></td>
+                    </tr>
+                    <tr>
+                        <td id="image-box" colspan="2"><img id="pokemon-image" src="<%= p.image %>"></td>
+                    </tr>
+                    <tr>
                         <td><%= p.game %> </td>
-                        <td><%= p.location %></td>
-                        <td><%= p.huntMethods %></td>
-                        <td>
+                        <td rowspan="3">
                             <form action="/successes/<%= p._id %>?_method=DELETE" method="POST">
                                 <button type="submit">Delete</button>
                             </form>
                         </td>
                     </tr>
                     <tr>
+                        <td><%= p.location %></td>
+                    </tr>
+                    <tr>
+                        <td><%= p.huntMethods %></td>
+                    </tr>
+                    <tr>
                             <form action="/successes/<%= p._id %>?_method=PUT" method="POST">
                                 <td><input type="text" value="<%= p.name %>" name="name"></td>
+                                <td><input type="text" value="<%= p.image %>" name="image"></td>
+                            </tr>
+                            <tr>
                                 <td><input type="text" value="<%= p.game %>" name="game"></td>
                                 <td><input type="text" value="<%= p.location %>" name="location"></td>
+                                </tr>
+                                <tr>
                                 <td><input type="text" value="<%= p.huntMethods %>" name="huntMethods"></td>
                                 <td><button type="submit">Edit</button></td>
                             </form>

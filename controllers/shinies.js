@@ -18,7 +18,8 @@ function editPokemon(req, res) {
         {new: true},
         function(err, pokemon) {
             if (err || !pokemon) return res.redirect('/');
-            res.redirect('/shinies')
+            console.log(req.body);
+            res.redirect('/shinies');
         }
     ) 
 }
