@@ -62,7 +62,8 @@ h1 {
   margin: 8px auto;
 }
 
-#add-pokemon > button, input {
+#add-pokemon>button,
+input {
   margin: 5px auto;
 }
 
@@ -73,7 +74,8 @@ table {
   background-color: white;
 }
 
-th, td {
+th,
+td {
   border: 1px solid white;
   padding: 0.5rem;
   min-width: 200px;

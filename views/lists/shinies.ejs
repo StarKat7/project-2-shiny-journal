@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,16 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Current Shiny Hunts</title>
 </head>
+
 <body>
     <nav>
         <a href="/successes">Successful Hunts List</a>
         <% if (user) { %>
             <a href="/logout">LOG OUT</a>
-          <% } else { %>
-            <a href="/auth/google" class="login">LOG IN&nbsp;<img class="google" src="https://i.imgur.com/FHjYyi0.png"></a>
-          <% } %>
+            <% } else { %>
+                <a href="/auth/google" class="login">LOG IN&nbsp;<img class="google"
+                        src="https://i.imgur.com/FHjYyi0.png"></a>
+                <% } %>
     </nav>
     <h1>Currently Hunting</h1>
     <% if (user) { %>
@@ -32,13 +35,17 @@
             <tbody>
                 <% profile.huntList.forEach(function(p) { %>
                     <tr>
-                        <td id="pokemon-name" colspan="2"><%= p.name %></td>
+                        <td id="pokemon-name" colspan="2">
+                            <%= p.name %>
+                        </td>
                     </tr>
                     <tr>
                         <td id="image-box" colspan="2"><img id="pokemon-image" src="<%= p.image %>"></td>
                     </tr>
                     <tr>
-                        <td><%= p.game %> </td>
+                        <td>
+                            <%= p.game %>
+                        </td>
                         <td rowspan="3">
                             <form action="/shinies/<%= p._id %>?_method=DELETE" method="POST">
                                 <button type="submit">Delete</button>
@@ -46,31 +53,36 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><%= p.location %></td>
+                        <td>
+                            <%= p.location %>
+                        </td>
                     </tr>
                     <tr>
-                        <td><%= p.huntMethods %></td>
+                        <td>
+                            <%= p.huntMethods %>
+                        </td>
                     </tr>
                     <tr>
-                            <form action="/shinies/<%= p._id %>?_method=PUT" method="POST">
-                                <td><input type="text" value="<%= p.name %>" name="name"></td>
-                                <td><input type="text" value="<%= p.image %>" name="image"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" value="<%= p.game %>" name="game"></td>
-                                <td><input type="text" value="<%= p.location %>" name="location"></td>
-                                </tr>
-                                <tr>
-                                <td><input type="text" value="<%= p.huntMethods %>" name="huntMethods"></td>
-                                <td><button type="submit">Edit</button></td>
-                            </form>
+                        <form action="/shinies/<%= p._id %>?_method=PUT" method="POST">
+                            <td><input type="text" value="<%= p.name %>" name="name"></td>
+                            <td><input type="text" value="<%= p.image %>" name="image"></td>
                     </tr>
-                <% }) %> 
+                    <tr>
+                        <td><input type="text" value="<%= p.game %>" name="game"></td>
+                        <td><input type="text" value="<%= p.location %>" name="location"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" value="<%= p.huntMethods %>" name="huntMethods"></td>
+                        <td><button type="submit">Edit</button></td>
+                        </form>
+                    </tr>
+                    <% }) %>
             </tbody>
         </table>
-    <% } else { %>
-        <div>Login to make your list</div>
-    <% } %> 
-    
+        <% } else { %>
+            <div>Login to make your list</div>
+            <% } %>
+
 </body>
+
 </html>

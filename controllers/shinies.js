@@ -11,17 +11,17 @@ module.exports = {
 }
 
 function editPokemon(req, res) {
-        //  Okay so I don't want to edit the list, I want to edit the Pokemon ON the list. So I need the Pokemon docs that the IDs on the list are attached to and edit those.
+    //  Okay so I don't want to edit the list, I want to edit the Pokemon ON the list. So I need the Pokemon docs that the IDs on the list are attached to and edit those.
     Pokemon.findOneAndUpdate(
-        {_id: req.params.id},
+        { _id: req.params.id },
         req.body,
-        {new: true},
-        function(err, pokemon) {
+        { new: true },
+        function (err, pokemon) {
             if (err || !pokemon) return res.redirect('/');
             console.log(req.body);
             res.redirect('/shinies');
         }
-    ) 
+    )
 }
 
 async function deletePokemon(req, res) {
@@ -31,23 +31,23 @@ async function deletePokemon(req, res) {
         profileDocument.huntList.remove(req.params.id);
         await profileDocument.save();
         res.redirect('/shinies');
-    } catch(err) {
+    } catch (err) {
         res.send(err);
     }
 }
 
 function addPokemon(req, res) {
-    Pokemon.create(req.body, function(err, pokemonBeingAdded) {
-        Profile.findById(req.user.profile, function(err, profileDocument) {
+    Pokemon.create(req.body, function (err, pokemonBeingAdded) {
+        Profile.findById(req.user.profile, function (err, profileDocument) {
             profileDocument.huntList.push(pokemonBeingAdded);
-            profileDocument.save(function(err) {
-                res.render("lists/shinies", {profile: profileDocument});
+            profileDocument.save(function (err) {
+                res.render("lists/shinies", { profile: profileDocument });
             })
-    })
-    console.log(req.body);
-    //  I need to add Pokemon to the user-specific lists... Profile.findById isn't working though... How do I do that?
-    console.log(req.user.profile);
-    
+        })
+        console.log(req.body);
+        //  I need to add Pokemon to the user-specific lists... Profile.findById isn't working though... How do I do that?
+        console.log(req.user.profile);
+
     })
 }
 
@@ -58,7 +58,7 @@ function index(req, res) {
 
     Profile.findById(req.user.profile)
         .populate("huntList")
-        .exec(function(err, profileDocument) {
+        .exec(function (err, profileDocument) {
             //  Maybe .populate will work... I have the profile document, now I need the Pokemon...
             Pokemon.find(
                 { _id: { $in: profileDocument.huntList } },
