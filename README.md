@@ -1,5 +1,5 @@
 # Shiny Journal
-
+[Click here to access the app!](https://shiny-journal-project-2.herokuapp.com/)
 A place to track your shiny hunts, ongoing and successful.
 
 ## Screenshots
