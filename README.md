@@ -1,6 +1,10 @@
 # Shiny Journal
 A place to track your shiny hunts, ongoing and successful. To start tracking your shiny hunts, login with Google and select the Currently Hunting link. From there, add the shiny Pokemon's name, location, and hunting method and hit the Add Pokemon button to get started! You can track successful shiny hunts on the Successes list.
 
+## App Link
+
+[Click here to access the app!](https://hunt-journal-project-2.herokuapp.com/)
+
 ## Screenshots
 ![Current Hunts Page](https://i.imgur.com/EtwzDoF.png)
 ![Pokemon Entry](https://i.imgur.com/QjM2ZRl.png)
@@ -12,9 +16,9 @@ A place to track your shiny hunts, ongoing and successful. To start tracking you
 * Express
 * JavaScript
 * CSS
+* ColorSpace(background gradient)
 
 ## Getting Started
-[Click here to access the app!](https://hunt-journal-project-2.herokuapp.com/)
 
 [Shiny Journal Trello Board](https://trello.com/invite/b/WzTWMPy0/1f83768f8f798fe51000264c8df70cc1/shiny-journal)
 
