@@ -7,7 +7,25 @@ module.exports = {
     index,
     add: addPokemon,
     delete: deletePokemon,
-    edit: editPokemon
+    edit: editPokemon,
+    acquired
+}
+
+async function acquired(req, res) {
+    //  So I need to move the selected Pokemon from the shinies list to the successes list.
+    //  req.params.id will give the ID of the Pokemon, I need to remove the ID from the huntList and add it to the successList
+    try {
+        const profileDocument = await Profile.findById(req.user.profile);
+        if (!profileDocument) return res.redirect('/');
+        profileDocument.huntList.remove(req.params.id);
+        await profileDocument.save();
+        profileDocument.successList.push(req.params.id);
+        await profileDocument.save();
+        res.redirect('/successes');
+    } catch (err) {
+        res.send(err);
+    }
+    
 }
 
 function editPokemon(req, res) {

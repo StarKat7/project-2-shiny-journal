@@ -43,6 +43,13 @@
                         <td id="image-box" colspan="2"><img id="pokemon-image" src="<%= p.image %>"></td>
                     </tr>
                     <tr>
+                        <td colspan="2">
+                            <form action="/shinies/<%= p._id %>" method="POST">
+                                <button type="submit">Acquired!</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>
                             <%= p.game %>
                         </td>
