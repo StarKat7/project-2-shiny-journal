@@ -40,7 +40,7 @@ function addPokemon(req, res) {
         Profile.findById(req.user.profile, function (err, profileDocument) {
             profileDocument.successList.push(pokemonBeingAdded);
             profileDocument.save(function (err) {
-                res.render("lists/successes", { profile: profileDocument });
+                res.redirect('/successes');
             })
         })
         console.log(req.body);

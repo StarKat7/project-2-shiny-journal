@@ -61,7 +61,7 @@ function addPokemon(req, res) {
         Profile.findById(req.user.profile, function (err, profileDocument) {
             profileDocument.huntList.push(pokemonBeingAdded);
             profileDocument.save(function (err) {
-                res.render("lists/shinies", { profile: profileDocument });
+                res.redirect('/shinies');
             })
         })
         console.log(req.body);
